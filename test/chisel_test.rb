@@ -12,18 +12,18 @@ class ChiselTest < Minitest::Test
     assert_instance_of Chisel, chisel
   end
 
-  def test_read_generates_string_of_text_from_target_file
+  def test_read_generates_array_holding_strings_of_text_from_target_file
     chisel = Chisel.new('./lib/input_for_test.markdown', './lib/output_for_test.html')
 
-    assert_equal "totally interesting stuff", chisel.read.chomp
+    assert_equal ["totally interesting stuff\n",  "i want to see more!\n"],chisel.read_lines
   end
 
   def test_write_adds_text_to_file
-      chisel = Chisel.new('./lib/input_for_test.markdown', './lib/output_for_test.html')
-      chisel.read.chomp
+    chisel = Chisel.new('./lib/input_for_test.markdown', './lib/output_for_test.html')
+      chisel.read_lines
       chisel.write
 
-      assert_equal "totally interesting stuff", chisel.read.chomp
+    assert_equal ["totally interesting stuff\n",  "i want to see more!\n"], chisel.read_lines
   end
 
 
