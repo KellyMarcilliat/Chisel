@@ -25,11 +25,4 @@ class ChiselTest < Minitest::Test
     assert_equal ["totally interesting stuff\n",  "i want to see more!\n", "\n", "1. sonoran dessert\n", "2. chihuahuan dessert\n"], chisel.read_lines('./lib/output_for_test.html')
   end
 
-
-
-  # def test_append_appends_text_to_target_file
-  #   chisel = Chisel.new
-  #
-  #   assert_equal "totally interesting stuff"
-
 end
